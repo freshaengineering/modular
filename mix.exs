@@ -33,7 +33,7 @@ defmodule Modular.MixProject do
       {:credo, ">= 0.0.0", only: :dev, runtime: false},
       {:ex_check, ">= 0.0.0", only: :dev, runtime: false},
       {:ex_doc, "~> 0.20", only: :dev},
-      {:mox, ">= 0.0.0", optional: true}
+      {:mox, "~> 1.2", optional: true}
     ]
   end
 

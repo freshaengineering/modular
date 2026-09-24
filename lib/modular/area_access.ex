@@ -190,13 +190,7 @@ defmodule Modular.AreaAccess do
 
   def install_stubs do
     for mod <- areas() do
-      mock = mock_impl(mod)
-      real = real_impl(mod)
-
-      for {fun, arity} <- mod.behaviour_info(:callbacks),
-          function_exported?(mock, fun, arity) do
-        run_mox(:stub, [mock, fun, :erlang.make_fun(real, fun, arity)])
-      end
+      run_mox(:stub_with, [mock_impl(mod), real_impl(mod)])
     end
   end
 
